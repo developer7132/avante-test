@@ -1,0 +1,15 @@
+body {
+  font-family: sans-serif;
+}
+.card {
+  margin: 10px;
+}
+.inline {
+  display: flex;
+  margin-bottom: 5px;
+}
+
+.inline .key {
+  font-weight: bold;
+  margin-right: 10px;
+}
