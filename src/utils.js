@@ -21,7 +21,7 @@ export const getRate = (book_date) => {
   return multiplier;
 };
 
-export const checkOutOfSequence = (current_trans) => {
+export const checkOutOfSequence = (current_trans) => {  
   const acc_trans = transactions.filter(
     (transaction) => transaction.account_id === current_trans.account_id
   );
@@ -54,3 +54,15 @@ export const built_html = (key, value) => {
         </div>
     `;
 };
+
+export const transformDate = (date) => {
+  let splitDate = date.split("-");
+
+  return `${splitDate[0]}-${splitDate[1]}`
+}
+
+export const isValidDate = (date) => {
+  let splitDate = date.split('-');
+  let new_date = new Date(splitDate[0], splitDate[1] - 1, splitDate[2]);
+  return new_date && (new_date.getMonth() + 1) == splitDate[1];
+}

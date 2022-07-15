@@ -1,8 +1,9 @@
-import { built_html, checkOutOfSequence } from "./utils.js";
+import { built_html, checkOutOfSequence, isValidDate } from "./utils.js";
 
 export const OutSequence = (accounts, transactions) => {
   let result = {};
   for (let i = 0; i < transactions.length; i++) {
+    if (!isValidDate(transactions[i].book_date)) continue;
     if (!checkOutOfSequence(transactions[i])) {
       const { account_id } = transactions[i];
       if (!result[account_id]) {
